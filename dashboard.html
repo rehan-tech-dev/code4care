@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Cockpit | Code4Care</title>
+  <meta name="description" content="Code4Care Vitals Cockpit: unified physical health and mental wellness diagnostic dashboard.">
+
+  <!-- Typography: Space Grotesk & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core & Dashboard Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    
+    <!-- ====================================================================
+         Desktop Left Sidebar
+         ==================================================================== -->
+    <aside class="dashboard-sidebar" id="dashboard-sidebar" aria-label="Dashboard Sidebar Navigation">
+      <div>
+        <!-- Sidebar Brand Logo -->
+        <div class="sidebar-brand">
+          <a href="index.html" class="brand-logo" aria-label="Code4Care Home">
+            <span class="brand-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </span>
+            <span>Code<span class="logo-accent">4</span>Care</span>
+          </a>
+        </div>
+
+        <!-- Navigation Sections -->
+        <nav aria-label="Sidebar Navigation">
+          <ul class="sidebar-nav">
+            <li class="sidebar-nav-item">
+              <button class="sidebar-link active" data-section="overview" id="nav-item-overview">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>Overview</span>
+              </button>
+            </li>
+            <li class="sidebar-nav-item">
+              <button class="sidebar-link" data-section="physical" id="nav-item-physical">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+                <span>Physical Health</span>
+              </button>
+            </li>
+            <li class="sidebar-nav-item">
+              <button class="sidebar-link" data-section="mental" id="nav-item-mental">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                </svg>
+                <span>Mental Wellness</span>
+              </button>
+            </li>
+            <li class="sidebar-nav-item">
+              <button class="sidebar-link" data-section="progress" id="nav-item-progress">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+                <span>My Progress</span>
+              </button>
+            </li>
+            <li class="sidebar-nav-item" style="margin-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 14px;">
+              <a href="index.html" class="sidebar-link" id="nav-item-home">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span>Home Page</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Live Telemetry Card at Bottom of Sidebar -->
+      <div class="sidebar-telemetry">
+        <div class="telemetry-row">
+          <span><span class="telemetry-status-dot" aria-hidden="true"></span>Telemetry</span>
+          <strong style="color: var(--success);">ONLINE</strong>
+        </div>
+        <div class="telemetry-row">
+          <span>Storage</span>
+          <span>Local Only</span>
+        </div>
+        <div class="telemetry-row">
+          <span>Network</span>
+          <span>0B Transmitted</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ====================================================================
+         Main Dashboard Cockpit Area
+         ==================================================================== -->
+    <main class="dashboard-main">
+      
+      <!-- Top Bar: Greeting, Real Date, Search -->
+      <header class="dashboard-topbar">
+        <div class="topbar-greeting">
+          <h1 class="greeting-text" id="greeting-text">Welcome, Operator</h1>
+          <p class="current-date-text" id="current-date-display">Loading real-time date...</p>
+        </div>
+
+        <div class="topbar-actions">
+          <!-- Real-Time Search Box -->
+          <div class="search-box-wrapper" role="search">
+            <span class="search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input 
+              type="text" 
+              class="search-input" 
+              id="tool-search-input" 
+              placeholder="Search tools (e.g. BMI, Sleep)..." 
+              aria-label="Search diagnostic tools">
+            <button class="search-clear-btn" id="search-clear-btn" aria-label="Clear search input">&times;</button>
+          </div>
+
+          <!-- Quick Return to Home Link on Mobile/Tablet -->
+          <a href="index.html" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;" aria-label="Back to home page">
+            <span>Home</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Dashboard Scrollable Content -->
+      <div class="dashboard-content">
+
+        <!-- ================================================================
+             Bento-Style Overview Grid (Demo Data Widgets)
+             ================================================================ -->
+        <section class="bento-overview-section" id="overview-section" aria-labelledby="overview-heading">
+          <div class="overview-header">
+            <div>
+              <span class="section-tag">Telemetry Cockpit</span>
+              <h2 id="overview-heading" style="font-size: 1.4rem;">Vitals &amp; Activity Overview</h2>
+            </div>
+            <span class="badge">Live Stream</span>
+          </div>
+
+          <div class="bento-grid">
+            
+            <!-- 1. Wellness Score Ring (Bento Large) -->
+            <div class="bento-card bento-card-large">
+              <span class="bento-badge-demo">Demo data</span>
+              <div class="bento-title-row">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                <span>Composite Wellness Index</span>
+              </div>
+
+              <div class="score-widget-inner">
+                <!-- Circular SVG Progress Meter -->
+                <div class="circular-gauge-wrapper">
+                  <svg viewBox="0 0 100 100" width="90" height="90">
+                    <circle class="gauge-bg" cx="50" cy="50" r="40" fill="transparent" stroke-width="8"></circle>
+                    <circle class="gauge-progress" cx="50" cy="50" r="40" fill="transparent" stroke-width="8"></circle>
+                  </svg>
+                  <div class="gauge-value">
+                    <span>88</span>
+                    <small>/ 100</small>
+                  </div>
+                </div>
+
+                <div class="score-stats">
+                  <h4>Optimal Biomarker Balance</h4>
+                  <p style="font-size: 0.84rem; line-height: 1.4;">
+                    Physical cardio thresholds and autonomic relaxation indices are functioning within target ranges.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Hydration Widget -->
+            <div class="bento-card">
+              <span class="bento-badge-demo">Demo data</span>
+              <div class="bento-title-row">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                </svg>
+                <span>Hydration</span>
+              </div>
+
+              <div>
+                <div style="display: flex; align-items: baseline; justify-content: space-between;">
+                  <strong style="font-size: 1.5rem; color: var(--cerulean); font-family: var(--font-heading);">1.8 <span style="font-size: 0.9rem; color: var(--muted); font-weight: normal;">/ 2.5L</span></strong>
+                  <span style="font-size: 0.8rem; color: var(--success); font-weight: 600;">72%</span>
+                </div>
+                <div class="hydration-progress-bar">
+                  <div class="hydration-fill" id="hydration-demo-fill"></div>
+                </div>
+              </div>
+
+              <div class="hydration-footer">
+                <span>Target: 2,500 mL</span>
+                <button class="btn-mini-add" id="btn-quick-water">+250 mL</button>
+              </div>
+            </div>
+
+            <!-- 3. Sleep Widget -->
+            <div class="bento-card mental-theme">
+              <span class="bento-badge-demo">Demo data</span>
+              <div class="bento-title-row">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                </svg>
+                <span>Sleep Architecture</span>
+              </div>
+
+              <div>
+                <div style="display: flex; align-items: baseline; justify-content: space-between;">
+                  <strong style="font-size: 1.5rem; color: var(--rose); font-family: var(--font-heading);">7h 45m</strong>
+                  <span style="font-size: 0.8rem; color: #FF85C0;">86% Quality</span>
+                </div>
+                <div class="sleep-bars" aria-hidden="true">
+                  <div class="sleep-bar-col" style="height: 35%;"></div>
+                  <div class="sleep-bar-col" style="height: 70%;"></div>
+                  <div class="sleep-bar-col" style="height: 90%;"></div>
+                  <div class="sleep-bar-col" style="height: 60%;"></div>
+                  <div class="sleep-bar-col" style="height: 85%;"></div>
+                  <div class="sleep-bar-col" style="height: 40%;"></div>
+                </div>
+              </div>
+
+              <div style="font-size: 0.78rem; color: var(--muted);">
+                5 Complete REM/Deep Cycles
+              </div>
+            </div>
+
+            <!-- 4. Mood & Balance -->
+            <div class="bento-card mental-theme">
+              <span class="bento-badge-demo">Demo data</span>
+              <div class="bento-title-row">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+                <span>Mood State</span>
+              </div>
+
+              <div>
+                <div style="font-size: 1.2rem; font-weight: 700; color: var(--rose); font-family: var(--font-heading);">
+                  Calm &amp; Focused
+                </div>
+                <div class="mood-waveform" aria-hidden="true">
+                  <div class="wave-bar" style="height: 20px;"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar" style="height: 16px;"></div>
+                </div>
+              </div>
+
+              <div style="font-size: 0.78rem; color: var(--muted);">
+                Vagal Tone: Synchronized
+              </div>
+            </div>
+
+            <!-- 5. Active Streak -->
+            <div class="bento-card">
+              <span class="bento-badge-demo">Demo data</span>
+              <div class="bento-title-row">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+                </svg>
+                <span>Vitality Streak</span>
+              </div>
+
+              <div>
+                <div style="display: flex; align-items: baseline; gap: 8px;">
+                  <strong style="font-size: 2rem; color: var(--warning); font-family: var(--font-heading);">6</strong>
+                  <span style="font-size: 0.9rem; color: var(--muted);">Days Active</span>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--muted); margin-top: 4px;">
+                  Personal best: 14 days consecutive tracking.
+                </p>
+              </div>
+
+              <div style="font-size: 0.78rem; color: var(--success);">
+                &bull; Streak secured today
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================================
+             Tools Area: Filter Tabs & Live Grid
+             ================================================================ -->
+        <section class="dashboard-tools-section" id="tools-section" aria-labelledby="tools-heading">
+          
+          <!-- Filter Tabs & Stats Bar -->
+          <div class="tools-filter-toolbar">
+            <div>
+              <h2 id="tools-heading" style="font-size: 1.4rem;">Diagnostic &amp; Wellness Tools</h2>
+              <p style="font-size: 0.86rem; color: var(--muted);">Click any tool card to launch its telemetry drawer.</p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="filter-tabs" role="tablist" aria-label="Tool Categories">
+              <button 
+                class="filter-tab-btn active" 
+                role="tab" 
+                aria-selected="true" 
+                data-category="all" 
+                id="tab-all">
+                All Tools
+              </button>
+              <button 
+                class="filter-tab-btn" 
+                role="tab" 
+                aria-selected="false" 
+                data-category="physical" 
+                id="tab-physical">
+                Physical Health
+              </button>
+              <button 
+                class="filter-tab-btn" 
+                role="tab" 
+                aria-selected="false" 
+                data-category="mental" 
+                id="tab-mental">
+                Mental Wellness
+              </button>
+            </div>
+
+            <!-- Dynamic Tool Counter -->
+            <div class="tools-count-badge" id="tools-counter-badge" aria-live="polite">
+              Showing 12 tools
+            </div>
+          </div>
+
+          <!-- Dynamic Grid Container (Populated via js/dashboard.js) -->
+          <div class="dashboard-tools-grid" id="tools-container" role="region" aria-label="Tools Grid">
+            <!-- Dynamic JavaScript rendering target -->
+          </div>
+
+        </section>
+
+        <!-- ================================================================
+             My Progress Section (Target for Progress sidebar tab)
+             ================================================================ -->
+        <section class="bento-overview-section" id="progress-section" style="display: none;" aria-labelledby="progress-heading">
+          <div class="overview-header">
+            <div>
+              <span class="section-tag">Historical Records</span>
+              <h2 id="progress-heading" style="font-size: 1.4rem;">My Telemetry Progress</h2>
+            </div>
+            <span class="badge badge-green">Local Sync Only</span>
+          </div>
+
+          <div class="bento-card" style="padding: 30px;">
+            <h3 style="margin-bottom: 8px;">Client-Side Data Storage</h3>
+            <p style="margin-bottom: 20px;">
+              Your diagnostics and calculations are saved exclusively in your browser's private local storage. 
+              No trackers, no telemetry servers, and no external cookies.
+            </p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <button class="btn btn-secondary" id="btn-export-data">Export Local Data (JSON)</button>
+              <button class="btn btn-ghost" id="btn-clear-cache" style="color: var(--rose);">Reset Demo Cache</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- ====================================================================
+         Mobile Bottom Navigation Bar
+         ==================================================================== -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+      <button class="mobile-bottom-nav-item active" data-section="overview">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        <span>Overview</span>
+      </button>
+      <button class="mobile-bottom-nav-item" data-section="physical">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <span>Physical</span>
+      </button>
+      <button class="mobile-bottom-nav-item" data-section="mental">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <span>Mental</span>
+      </button>
+      <button class="mobile-bottom-nav-item" data-section="progress">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        <span>Progress</span>
+      </button>
+      <a href="index.html" class="mobile-bottom-nav-item" style="text-decoration: none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span>Home</span>
+      </a>
+    </nav>
+
+    <!-- ====================================================================
+         Slide-out Tool Drawer (Side Panel)
+         ==================================================================== -->
+    <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+
+    <aside 
+      class="tool-drawer" 
+      id="tool-drawer" 
+      role="dialog" 
+      aria-modal="true" 
+      aria-labelledby="drawer-title" 
+      tabindex="-1">
+      
+      <!-- Drawer Header -->
+      <div class="drawer-header">
+        <div class="drawer-header-info">
+          <div class="drawer-tool-icon" id="drawer-icon" aria-hidden="true">
+            <!-- Populated dynamically -->
+          </div>
+          <div class="drawer-header-text">
+            <h3 id="drawer-title">Tool Title</h3>
+            <span class="badge" id="drawer-category-badge">Category</span>
+          </div>
+        </div>
+
+        <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close tool panel">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Drawer Content Body -->
+      <div class="drawer-body">
+        <p id="drawer-desc" style="color: var(--muted); font-size: 0.95rem; line-height: 1.6;">
+          Tool description goes here.
+        </p>
+
+        <!-- Tool Mount Point: Container where tool JS will inject interactive elements -->
+        <div id="tool-mount-point" class="tool-mount-point">
+          <!-- Populated dynamically via tool.render(container) or coming soon placeholder -->
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Vanilla Scripts (Load data first, then dashboard controller) -->
+  <script src="js/tools-data.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
