@@ -36,7 +36,7 @@ var ICONS = {
   bell: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>'
 };
 
-// All planned Code4Care tools metadata
+// All active Code4Care tools metadata with simple, friendly English
 var TOOLS_DATA = [
   // --- PHYSICAL HEALTH TOOLS ---
   {
@@ -44,63 +44,63 @@ var TOOLS_DATA = [
     name: 'BMI Calculator',
     category: 'physical',
     icon: ICONS.scale,
-    description: 'Calculate Body Mass Index, body fat estimation, and healthy weight ranges.',
-    status: 'coming-soon',
-    features: ['Metric and Imperial units', 'WHO category classification', 'Healthy weight range indicator']
+    description: 'Check if your weight is in a healthy balance for your height.',
+    status: 'active',
+    features: ['Metric (kg/cm) and US (lbs/ft) units', 'Clear colored health zones', 'Target healthy weight range']
   },
   {
     id: 'calorie-bmr',
-    name: 'Calorie and BMR',
+    name: 'Calorie & BMR Calculator',
     category: 'physical',
     icon: ICONS.flame,
-    description: 'Estimate Basal Metabolic Rate and Total Daily Energy Expenditure (TDEE).',
-    status: 'coming-soon',
-    features: ['Mifflin-St Jeor formula', 'Activity multiplier options', 'Deficit/surplus caloric targets']
+    description: 'See how many calories you burn each day and what to eat to reach your goals.',
+    status: 'active',
+    features: ['Resting calorie burn (BMR)', 'Daily workout activity boost', 'Protein, carb, and fat breakdown']
   },
   {
     id: 'blood-pressure',
     name: 'Blood Pressure Checker',
     category: 'physical',
     icon: ICONS.activity,
-    description: 'Log and evaluate systolic and diastolic pressures against clinical stages.',
-    status: 'coming-soon',
-    features: ['AHA/ACC classification', 'Visual pressure radar', 'Pulse pressure calculation']
+    description: 'Check your blood pressure numbers to see if they are healthy or if you need to rest.',
+    status: 'active',
+    features: ['Simple normal/elevated/high guide', 'Pulse pressure check', 'Helpful everyday health tips']
   },
   {
     id: 'heart-rate-zones',
     name: 'Heart-Rate Zones',
     category: 'physical',
     icon: ICONS.heart,
-    description: 'Determine your 5 cardiovascular training zones based on resting and max HR.',
-    status: 'coming-soon',
-    features: ['Karvonen formula', 'Fat-burn & anaerobic thresholds', 'Workout target guidelines']
+    description: 'Find the right pulse for warming up, burning fat, and cardio workouts.',
+    status: 'active',
+    features: ['5 custom exercise zones', 'Fat burn & endurance BPM', 'Easy-to-follow workout tips']
   },
   {
     id: 'water-intake',
-    name: 'Water Intake',
+    name: 'Water Intake Tracker',
     category: 'physical',
     icon: ICONS.droplet,
-    description: 'Compute optimal daily hydration targets tailored to body mass and climate.',
-    status: 'coming-soon',
-    features: ['Dynamic hydration formula', 'One-click daily cup logging', 'Visual telemetry glass']
+    description: 'Track how much water you drink each day to stay hydrated and refreshed.',
+    status: 'active',
+    features: ['Animated filling water glass', 'Quick +1 Cup (250 ml) tap', 'Daily goal progress bar']
   },
   {
     id: 'ideal-weight',
-    name: 'Ideal Weight',
+    name: 'Ideal Weight Guide',
     category: 'physical',
     icon: ICONS.target,
-    description: 'Compare multiple clinical formulas (Devine, Robinson, Miller, Hamwi).',
-    status: 'coming-soon',
-    features: ['Multi-formula comparison', 'Gender-specific modeling', 'Confidence bounds']
+    description: 'Discover your comfortable, healthy weight range based on your height and frame.',
+    status: 'active',
+    features: ['Adjusts for body frame', 'Comfortable healthy range', 'Encouraging health reminders']
   },
   {
     id: 'pulse-counter',
-    name: 'Pulse Counter',
+    name: 'Tap Pulse Counter',
     category: 'physical',
     icon: ICONS.watch,
-    description: 'Interactive tap-tempo pulse counter to measure heart rate in real time.',
-    status: 'coming-soon',
-    features: ['Tap-to-measure engine', 'Live BPM smoothing', 'Rhythm stability metric']
+    description: 'Tap along with your heartbeat to measure your pulse in real time.',
+    status: 'active',
+    features: ['Interactive pulsing heart button', 'Live BPM speed counter', 'Instant resting rating']
   },
 
   // --- MENTAL WELLNESS TOOLS ---
@@ -109,45 +109,45 @@ var TOOLS_DATA = [
     name: 'Breathing Pacer',
     category: 'mental',
     icon: ICONS.wind,
-    description: 'Guided visual breath pacing (Box breathing 4-4-4-4, 4-7-8, and Coherence).',
-    status: 'coming-soon',
-    features: ['Expanding neon visual circle', 'Custom inhale/hold/exhale timings', 'Haptic & audio cues']
+    description: 'Calm your body and mind with soothing guided breathing exercises.',
+    status: 'active',
+    features: ['Expanding visual breath circle', 'Box breathing (4-4-4-4) & Sleep (4-7-8)', 'Soft audio chime cues']
   },
   {
     id: 'stress-check',
-    name: 'Stress Check',
+    name: 'Quick Stress Check',
     category: 'mental',
     icon: ICONS.zap,
-    description: 'Rapid self-assessment questionnaire based on the Perceived Stress Scale.',
-    status: 'coming-soon',
-    features: ['Validated PSS-10 adaptation', 'Instant stress index score', 'Calming recommendations']
+    description: 'A 1-minute friendly check-in to see how stressed you feel and get calming advice.',
+    status: 'active',
+    features: ['4 quick check-in questions', 'Instant 0-100 stress score', '3 gentle tips to relax']
   },
   {
     id: 'mood-tracker',
-    name: 'Mood Tracker',
+    name: 'Daily Mood Tracker',
     category: 'mental',
     icon: ICONS.smile,
-    description: 'Log valence and energy levels on an interactive emotional circumplex matrix.',
-    status: 'coming-soon',
-    features: ['2D emotion quadrant', 'Trigger and gratitude notes', 'Weekly mood trends']
+    description: 'Check in with how you feel today and notice what makes you happy.',
+    status: 'active',
+    features: ['5 animated emoji feelings', 'Quick tags (Exercise, Sleep, Friends)', 'Daily gratitude note']
   },
   {
     id: 'sleep-log',
-    name: 'Sleep Log',
+    name: 'Sleep Log & Bedtime Calculator',
     category: 'mental',
     icon: ICONS.moon,
-    description: 'Record bedtime, latency, wake-ups, and calculate sleep efficiency scores.',
-    status: 'coming-soon',
-    features: ['Sleep cycle calculation (90m)', 'Debt & efficiency telemetry', 'Circadian consistency score']
+    description: 'Find the best bedtime to wake up refreshed and track last night\'s rest.',
+    status: 'active',
+    features: ['90-minute sleep cycle calculator', 'Wake up refreshed without grogginess', 'Log hours & quality']
   },
   {
     id: 'meditation-timer',
-    name: 'Meditation Timer',
+    name: 'Peaceful Meditation Timer',
     category: 'mental',
     icon: ICONS.bell,
-    description: 'Minimalist ambient session timer with gentle interval chimes and focus stats.',
-    status: 'coming-soon',
-    features: ['Custom session durations', 'Ambient sound generator', 'Streak logging']
+    description: 'Take a quiet pause to rest your mind and reset your focus with gentle bells.',
+    status: 'active',
+    features: ['1, 3, 5, 10, or 15 minute timers', 'Circular animated timer ring', 'Gentle opening & closing bells']
   }
 ];
 

@@ -88,4 +88,31 @@
     });
   });
 
+  // 5. Interactive Home Page Tools Category Filtering
+  var homeFilterBtns = document.querySelectorAll('[data-home-filter]');
+  var homeToolTiles = document.querySelectorAll('#home-tools-grid .tool-preview-tile');
+
+  if (homeFilterBtns.length > 0 && homeToolTiles.length > 0) {
+    homeFilterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var filterVal = btn.getAttribute('data-home-filter');
+
+        homeFilterBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        homeToolTiles.forEach(function (tile) {
+          var category = tile.getAttribute('data-category');
+          var shouldShow = filterVal === 'all' || category === filterVal;
+
+          if (shouldShow) {
+            tile.style.display = 'flex';
+            tile.style.animation = 'tool-fade-in 0.3s ease-out';
+          } else {
+            tile.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
 })();

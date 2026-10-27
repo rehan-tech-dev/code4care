@@ -6,13 +6,14 @@
   <title>Code4Care | Physical & Mental Health Care Tools</title>
   <meta name="description" content="Code4Care is a unified, privacy-first diagnostic and wellness cockpit featuring physical biomarker calculators and mental health tools in a futuristic neon interface.">
 
-  <!-- Typography: Space Grotesk (Headings) & Inter (Body) -->
+  <!-- Typography: Plus Jakarta Sans (Headings), Space Grotesk & Inter (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Core Design System -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tools.css">
 </head>
 <body>
 
@@ -83,12 +84,11 @@
         <svg class="ecg-svg" viewBox="0 0 1200 100" fill="none" preserveAspectRatio="none">
           <defs>
             <linearGradient id="ecg-high-contrast-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#00F0FF" />
-              <stop offset="20%" stop-color="#FFFFFF" />
-              <stop offset="45%" stop-color="#00F0FF" />
-              <stop offset="65%" stop-color="#FF2E93" />
-              <stop offset="85%" stop-color="#FFFFFF" />
-              <stop offset="100%" stop-color="#00F0FF" />
+              <stop offset="0%" stop-color="#22D3EE" />
+              <stop offset="25%" stop-color="#60A5FA" />
+              <stop offset="50%" stop-color="#FFFFFF" />
+              <stop offset="75%" stop-color="#3B82F6" />
+              <stop offset="100%" stop-color="#22D3EE" />
             </linearGradient>
           </defs>
           <path class="ecg-path-high-contrast" d="M 0 50 L 120 50 L 135 50 L 145 10 L 155 90 L 165 38 L 175 58 L 185 50 L 320 50 L 335 50 L 345 10 L 355 90 L 365 38 L 375 58 L 385 50 L 520 50 L 535 50 L 545 10 L 555 90 L 565 38 L 575 58 L 585 50 L 720 50 L 735 50 L 745 10 L 755 90 L 765 38 L 775 58 L 785 50 L 920 50 L 935 50 L 945 10 L 955 90 L 965 38 L 975 58 L 985 50 L 1120 50 L 1135 50 L 1145 10 L 1155 90 L 1165 38 L 1175 58 L 1185 50 L 1200 50" />
@@ -100,18 +100,18 @@
         <div class="hero-content hero-content-centered">
           <div class="badge badge-high-contrast">
             <span class="pulse-dot"></span>
-            <span>Vitals &amp; Wellness Monitor v1.0</span>
+            <span>Health &amp; Wellness Suite &bull; 12 Active Tools</span>
           </div>
 
           <h1 class="hero-title">
             Your health. <br>
             Your tools. <br>
-            <span class="gradient-text">One place.</span>
+            <span class="gradient-text">One simple place.</span>
           </h1>
 
           <p class="hero-subtitle">
-            A unified, privacy-first diagnostic cockpit. Monitor physical vitals, 
-            calibrate mental wellness, and track real health trends—without bloated apps or sign-ups.
+            A simple, private way to care for yourself. 12 easy tools to check your body vitals, 
+            calm your mind, and build healthy daily habits—completely free and with zero sign-ups.
           </p>
 
           <div class="hero-buttons">
@@ -123,7 +123,7 @@
               </svg>
             </a>
             <a href="#tools" class="btn btn-secondary" id="hero-explore-btn">
-              <span>Explore tools</span>
+              <span>Explore All 12 Tools</span>
             </a>
           </div>
 
@@ -131,7 +131,7 @@
           <div class="hero-vitals-monitor" role="region" aria-label="High Contrast Live Vitals Oscilloscope">
             <div class="monitor-vitals-header">
               <div class="monitor-stat">
-                <span class="monitor-label">HR TELEMETRY</span>
+                <span class="monitor-label">HEART RATE</span>
                 <span class="monitor-value neon-cyan">
                   <svg class="heart-pulse-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -141,11 +141,11 @@
               </div>
               <div class="monitor-stat">
                 <span class="monitor-label">RHYTHM</span>
-                <span class="monitor-value neon-green">NORMAL SINUS</span>
+                <span class="monitor-value neon-green">HEALTHY &amp; STEADY</span>
               </div>
               <div class="monitor-stat">
-                <span class="monitor-label">SYSTEM</span>
-                <span class="monitor-value neon-pink">ONLINE &bull; PRIVATE</span>
+                <span class="monitor-label">PRIVACY</span>
+                <span class="monitor-value neon-pink">100% ON YOUR DEVICE</span>
               </div>
             </div>
 
@@ -163,11 +163,11 @@
           <div class="hero-telemetry-strip" role="status">
             <div class="hero-telemetry-item">
               <span class="pulse-dot" style="background-color: var(--success);" aria-hidden="true"></span>
-              <span>System: <strong>Nominal</strong></span>
+              <span>Status: <strong>Ready &amp; Active</strong></span>
             </div>
             <span style="color: rgba(255,255,255,0.15)">|</span>
             <div class="hero-telemetry-item">
-              <span>Planned Engines: <strong>12 Tools</strong></span>
+              <span>Included: <strong>12 Ready Tools</strong></span>
             </div>
             <span style="color: rgba(255,255,255,0.15)">|</span>
             <div class="hero-telemetry-item">
@@ -184,11 +184,11 @@
     <section class="features-section" id="features">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Telemetry Categories</span>
-          <h2 class="section-title">Two Pillars of Human Vitality</h2>
+          <span class="section-tag">Two Ways to Care for Yourself</span>
+          <h2 class="section-title">Body &amp; Mind Together</h2>
           <p class="section-desc">
-            Complete wellness requires synchronizing biomechanics with neuro-cognitive balance.
-            Code4Care organizes all tools into two dedicated telemetry streams.
+            True wellness means looking after both how your body feels and how your mind rests.
+            Code4Care brings together 12 friendly tools to help you every day.
           </p>
         </div>
 
@@ -202,39 +202,39 @@
                 </svg>
               </div>
               <div>
-                <span class="badge" style="margin-bottom: 4px;">Stream 01</span>
+                <span class="badge" style="margin-bottom: 4px;">7 Tools</span>
                 <h3 class="panel-title gradient-text-cerulean">Physical Health</h3>
               </div>
             </div>
 
             <p class="panel-desc">
-              Clinical diagnostic equations, cardiovascular zone planning, metabolic telemetry, and hydration targets.
+              Simple calculators to check your weight balance, count calories, check blood pressure, and workout safely.
             </p>
 
             <ul class="tool-checklist">
               <li class="checklist-item">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>BMI &amp; Body Composition</strong> — WHO categorizations and healthy weight limits</span>
+                <span><strong>BMI &amp; Healthy Weight</strong> — Clear healthy ranges tailored to your height</span>
               </li>
               <li class="checklist-item">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>Calorie &amp; BMR Calculator</strong> — Mifflin-St Jeor metabolic expenditure</span>
+                <span><strong>Calorie &amp; BMR Calculator</strong> — Daily energy burn and balanced meal targets</span>
               </li>
               <li class="checklist-item">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>Blood Pressure Checker</strong> — Systolic/diastolic clinical stage evaluator</span>
+                <span><strong>Blood Pressure Checker</strong> — Clear normal, elevated, and high stage ratings</span>
               </li>
               <li class="checklist-item">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>Heart-Rate Zones</strong> — 5 aerobic &amp; anaerobic training boundaries</span>
+                <span><strong>Heart-Rate Zones</strong> — 5 exercise zones from warm-up to fat burning</span>
               </li>
               <li class="checklist-item">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>Hydration, Ideal Weight &amp; Pulse Counter</strong> — Quick vital taps</span>
+                <span><strong>Water Intake, Ideal Weight &amp; Pulse Tap</strong> — Quick daily vital checks</span>
               </li>
             </ul>
 
-            <a href="dashboard.html" class="btn btn-secondary" style="margin-top: auto; align-self: flex-start;">
+            <a href="dashboard.html?section=physical" class="btn btn-secondary" style="margin-top: auto; align-self: flex-start;">
               Explore Physical Tools &rarr;
             </a>
           </div>
@@ -248,39 +248,39 @@
                 </svg>
               </div>
               <div>
-                <span class="badge badge-rose" style="margin-bottom: 4px;">Stream 02</span>
+                <span class="badge badge-rose" style="margin-bottom: 4px;">5 Tools</span>
                 <h3 class="panel-title gradient-text-rose">Mental Wellness</h3>
               </div>
             </div>
 
             <p class="panel-desc">
-              Autonomic regulation, vagal nerve pacing, stress index scoring, and sleep architecture tracking.
+              Gentle practices to relax your nervous system, ease tension, check in with feelings, and rest deeply.
             </p>
 
             <ul class="tool-checklist">
               <li class="checklist-item">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>Breathing Pacer</strong> — Box breathing (4-4-4-4), 4-7-8, and Coherence rhythms</span>
+                <span><strong>Breathing Pacer</strong> — Expanding visual circle for Box breathing &amp; sleep relaxation</span>
               </li>
               <li class="checklist-item">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>Stress Check Index</strong> — Validated Perceived Stress Scale evaluation</span>
+                <span><strong>Quick Stress Check</strong> — 4 friendly questions with comforting advice</span>
               </li>
               <li class="checklist-item">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>Mood Matrix Tracker</strong> — Valence &amp; energy emotional state logging</span>
+                <span><strong>Daily Mood Tracker</strong> — 5 animated emoji feelings and gratitude notes</span>
               </li>
               <li class="checklist-item">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>Sleep Log Architecture</strong> — 90-minute sleep cycles and sleep debt</span>
+                <span><strong>Sleep Log &amp; Bedtime Calculator</strong> — 90-minute sleep cycles for zero morning fog</span>
               </li>
               <li class="checklist-item">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>Meditation Session Timer</strong> — Ambient focus with gentle intervals</span>
+                <span><strong>Peaceful Meditation Timer</strong> — Quiet focus timers with soothing sound bells</span>
               </li>
             </ul>
 
-            <a href="dashboard.html" class="btn btn-primary" style="margin-top: auto; align-self: flex-start;">
+            <a href="dashboard.html?section=mental" class="btn btn-primary" style="margin-top: auto; align-self: flex-start;">
               Explore Mental Tools &rarr;
             </a>
           </div>
@@ -291,19 +291,29 @@
     <!-- ====================================================================
          Tools Preview Grid (6 Featured Tool Tiles)
          ==================================================================== -->
+    <!-- ====================================================================
+         All 12 Health & Wellness Tools (Filterable Preview)
+         ==================================================================== -->
     <section class="tools-preview-section" id="tools">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Featured Engines</span>
-          <h2 class="section-title">Tools Preview</h2>
+          <span class="section-tag">All 12 Health Tools</span>
+          <h2 class="section-title">Explore Your Tools</h2>
           <p class="section-desc">
-            A sneak peek at the diagnostic instruments and wellness monitors built into the dashboard.
+            Click any tool to launch it in your private dashboard cockpit. Everything is free, fast, and works instantly.
           </p>
+
+          <!-- Simple Category Filter Buttons -->
+          <div class="filter-tabs" style="display: inline-flex; margin-top: 18px;" role="tablist">
+            <button class="filter-tab-btn active" id="home-filter-all" data-home-filter="all">All 12 Tools</button>
+            <button class="filter-tab-btn" id="home-filter-physical" data-home-filter="physical">Physical Health (7)</button>
+            <button class="filter-tab-btn" id="home-filter-mental" data-home-filter="mental">Mental Wellness (5)</button>
+          </div>
         </div>
 
-        <div class="preview-grid">
+        <div class="preview-grid" id="home-tools-grid">
           <!-- 1. BMI Calculator (Physical) -->
-          <article class="tool-preview-tile physical">
+          <article class="tool-preview-tile physical" data-category="physical">
             <div class="tile-top">
               <div class="tile-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/><path d="M7 12a5 5 0 0 0 10 0"/></svg>
@@ -312,28 +322,28 @@
             </div>
             <div class="tile-body">
               <h4>BMI Calculator</h4>
-              <p>Compute Body Mass Index, body fat estimates, and healthy target weight ranges.</p>
+              <p>Check if your weight is in a healthy balance for your height with clear color zones.</p>
             </div>
-            <a href="dashboard.html" class="tile-link">Open in Dashboard &rarr;</a>
+            <a href="dashboard.html?tool=bmi-calculator" class="tile-link">Open Tool &rarr;</a>
           </article>
 
-          <!-- 2. Breathing Pacer (Mental) -->
-          <article class="tool-preview-tile mental">
+          <!-- 2. Calorie & BMR (Physical) -->
+          <article class="tool-preview-tile physical" data-category="physical">
             <div class="tile-top">
               <div class="tile-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
               </div>
-              <span class="badge badge-rose">Mental</span>
+              <span class="badge">Physical</span>
             </div>
             <div class="tile-body">
-              <h4>Breathing Pacer</h4>
-              <p>Visual bio-pacing guide supporting Box Breathing, 4-7-8, and Coherence patterns.</p>
+              <h4>Calorie &amp; BMR Calculator</h4>
+              <p>See how many calories you burn at rest and get a balanced meal energy target.</p>
             </div>
-            <a href="dashboard.html" class="tile-link">Open in Dashboard &rarr;</a>
+            <a href="dashboard.html?tool=calorie-bmr" class="tile-link">Open Tool &rarr;</a>
           </article>
 
           <!-- 3. Blood Pressure Checker (Physical) -->
-          <article class="tool-preview-tile physical">
+          <article class="tool-preview-tile physical" data-category="physical">
             <div class="tile-top">
               <div class="tile-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
@@ -342,28 +352,13 @@
             </div>
             <div class="tile-body">
               <h4>Blood Pressure Checker</h4>
-              <p>Categorize systolic &amp; diastolic readings against AHA/ACC clinical stages.</p>
+              <p>Check your top and bottom numbers with simple normal, elevated, and high ratings.</p>
             </div>
-            <a href="dashboard.html" class="tile-link">Open in Dashboard &rarr;</a>
+            <a href="dashboard.html?tool=blood-pressure" class="tile-link">Open Tool &rarr;</a>
           </article>
 
-          <!-- 4. Stress Check (Mental) -->
-          <article class="tool-preview-tile mental">
-            <div class="tile-top">
-              <div class="tile-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              </div>
-              <span class="badge badge-rose">Mental</span>
-            </div>
-            <div class="tile-body">
-              <h4>Stress Check</h4>
-              <p>Fast clinical questionnaire evaluating perceived stress index and coping balance.</p>
-            </div>
-            <a href="dashboard.html" class="tile-link">Open in Dashboard &rarr;</a>
-          </article>
-
-          <!-- 5. Heart-Rate Zones (Physical) -->
-          <article class="tool-preview-tile physical">
+          <!-- 4. Heart-Rate Zones (Physical) -->
+          <article class="tool-preview-tile physical" data-category="physical">
             <div class="tile-top">
               <div class="tile-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
@@ -372,13 +367,103 @@
             </div>
             <div class="tile-body">
               <h4>Heart-Rate Zones</h4>
-              <p>Map your 5 cardio zones from warm-up to VO2 max using Karvonen formulas.</p>
+              <p>Find the best pulse speeds for warm-ups, fat burning, and cardio stamina.</p>
             </div>
-            <a href="dashboard.html" class="tile-link">Open in Dashboard &rarr;</a>
+            <a href="dashboard.html?tool=heart-rate-zones" class="tile-link">Open Tool &rarr;</a>
           </article>
 
-          <!-- 6. Sleep Log (Mental) -->
-          <article class="tool-preview-tile mental">
+          <!-- 5. Water Intake (Physical) -->
+          <article class="tool-preview-tile physical" data-category="physical">
+            <div class="tile-top">
+              <div class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              </div>
+              <span class="badge">Physical</span>
+            </div>
+            <div class="tile-body">
+              <h4>Water Intake Tracker</h4>
+              <p>An animated water glass to log your daily cups and stay refreshed throughout the day.</p>
+            </div>
+            <a href="dashboard.html?tool=water-intake" class="tile-link">Open Tool &rarr;</a>
+          </article>
+
+          <!-- 6. Ideal Weight (Physical) -->
+          <article class="tool-preview-tile physical" data-category="physical">
+            <div class="tile-top">
+              <div class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+              <span class="badge">Physical</span>
+            </div>
+            <div class="tile-body">
+              <h4>Ideal Weight Guide</h4>
+              <p>Discover your healthy, comfortable weight target tailored to your height and frame.</p>
+            </div>
+            <a href="dashboard.html?tool=ideal-weight" class="tile-link">Open Tool &rarr;</a>
+          </article>
+
+          <!-- 7. Pulse Counter (Physical) -->
+          <article class="tool-preview-tile physical" data-category="physical">
+            <div class="tile-top">
+              <div class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/><polyline points="12 9 12 12 13.5 13.5"/><path d="M16.51 17.35l-.35 3.83a2 2 0 0 1-2 1.82H9.83a2 2 0 0 1-2-1.82l-.35-3.83m.01-10.7l.35-3.83A2 2 0 0 1 9.83 1h4.34a2 2 0 0 1 2 1.82l.35 3.83"/></svg>
+              </div>
+              <span class="badge">Physical</span>
+            </div>
+            <div class="tile-body">
+              <h4>Tap Pulse Counter</h4>
+              <p>Tap along with your heartbeat on an interactive pulsing button to count your BPM.</p>
+            </div>
+            <a href="dashboard.html?tool=pulse-counter" class="tile-link">Open Tool &rarr;</a>
+          </article>
+
+          <!-- 8. Breathing Pacer (Mental) -->
+          <article class="tool-preview-tile mental" data-category="mental">
+            <div class="tile-top">
+              <div class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
+              </div>
+              <span class="badge badge-rose">Mental</span>
+            </div>
+            <div class="tile-body">
+              <h4>Breathing Pacer</h4>
+              <p>Follow an expanding glowing circle for relaxing Box Breathing and 4-7-8 sleep breathing.</p>
+            </div>
+            <a href="dashboard.html?tool=breathing-pacer" class="tile-link">Open Tool &rarr;</a>
+          </article>
+
+          <!-- 9. Stress Check (Mental) -->
+          <article class="tool-preview-tile mental" data-category="mental">
+            <div class="tile-top">
+              <div class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <span class="badge badge-rose">Mental</span>
+            </div>
+            <div class="tile-body">
+              <h4>Quick Stress Check</h4>
+              <p>A 1-minute friendly check-in to see how stressed you feel and get 3 gentle calming tips.</p>
+            </div>
+            <a href="dashboard.html?tool=stress-check" class="tile-link">Open Tool &rarr;</a>
+          </article>
+
+          <!-- 10. Mood Tracker (Mental) -->
+          <article class="tool-preview-tile mental" data-category="mental">
+            <div class="tile-top">
+              <div class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              </div>
+              <span class="badge badge-rose">Mental</span>
+            </div>
+            <div class="tile-body">
+              <h4>Daily Mood Tracker</h4>
+              <p>Log your feelings with cute animated emojis and see what brings you the most joy.</p>
+            </div>
+            <a href="dashboard.html?tool=mood-tracker" class="tile-link">Open Tool &rarr;</a>
+          </article>
+
+          <!-- 11. Sleep Log (Mental) -->
+          <article class="tool-preview-tile mental" data-category="mental">
             <div class="tile-top">
               <div class="tile-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
@@ -386,10 +471,25 @@
               <span class="badge badge-rose">Mental</span>
             </div>
             <div class="tile-body">
-              <h4>Sleep Log</h4>
-              <p>Track bedtime consistency, 90-minute sleep cycles, and daily sleep efficiency.</p>
+              <h4>Sleep Log &amp; Bedtime</h4>
+              <p>Calculate optimal 90-minute sleep times to wake up feeling refreshed and without morning fog.</p>
             </div>
-            <a href="dashboard.html" class="tile-link">Open in Dashboard &rarr;</a>
+            <a href="dashboard.html?tool=sleep-log" class="tile-link">Open Tool &rarr;</a>
+          </article>
+
+          <!-- 12. Meditation Timer (Mental) -->
+          <article class="tool-preview-tile mental" data-category="mental">
+            <div class="tile-top">
+              <div class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+              </div>
+              <span class="badge badge-rose">Mental</span>
+            </div>
+            <div class="tile-body">
+              <h4>Peaceful Meditation Timer</h4>
+              <p>Quiet focus session timers with a relaxing countdown ring and soothing gentle chime bells.</p>
+            </div>
+            <a href="dashboard.html?tool=meditation-timer" class="tile-link">Open Tool &rarr;</a>
           </article>
         </div>
       </div>
@@ -401,10 +501,10 @@
     <section class="how-it-works-section" id="how-it-works">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Operation Protocol</span>
-          <h2 class="section-title">How Code4Care Operates</h2>
+          <span class="section-tag">Simple &amp; Easy</span>
+          <h2 class="section-title">How Code4Care Works</h2>
           <p class="section-desc">
-            Engineered for speed, privacy, and zero friction. Three simple steps to actionable health insight.
+            No sign-ups, no downloads, completely free and 100% private. Three easy steps to care for yourself.
           </p>
         </div>
 
@@ -414,25 +514,25 @@
             <span class="step-number">01</span>
             <h3 class="step-title">Choose a Tool</h3>
             <p class="step-desc">
-              Browse by physical or mental category in the unified dashboard. Filter by need or search in real time.
+              Pick any of our 12 physical or mental health tools. Filter by category or search instantly.
             </p>
           </div>
 
           <!-- Step 2 -->
           <div class="step-card">
             <span class="step-number">02</span>
-            <h3 class="step-title">Enter Your Details</h3>
+            <h3 class="step-title">Enter Your Numbers</h3>
             <p class="step-desc">
-              Input metrics like height, weight, pulse, or breath rate. All data calculations stay strictly in your local browser.
+              Type your height, weight, pulse, or sleep hours. All calculations stay strictly on your local device.
             </p>
           </div>
 
           <!-- Step 3 -->
           <div class="step-card">
             <span class="step-number">03</span>
-            <h3 class="step-title">Get Instant Insights</h3>
+            <h3 class="step-title">Get Friendly Answers</h3>
             <p class="step-desc">
-              Receive immediate visual telemetry, clinical standard classification ratings, and clear next steps.
+              See colorful, clear results with helpful everyday tips and guidance you can use immediately.
             </p>
           </div>
         </div>
@@ -445,13 +545,13 @@
     <section class="cta-section">
       <div class="container">
         <div class="cta-box">
-          <span class="badge badge-green">Ready to Deploy</span>
-          <h2>Take Command of Your Health Telemetry</h2>
+          <span class="badge badge-green">Ready Whenever You Are</span>
+          <h2>Start Caring for Your Health Today</h2>
           <p>
-            Launch the Code4Care cockpit right now. Completely free, open, and running 100% inside your browser.
+            Open the full dashboard to try all 12 tools and check your daily score. Completely free, no accounts, and 100% private in your browser.
           </p>
           <a href="dashboard.html" class="btn btn-primary" style="font-size: 1.05rem; padding: 14px 32px;">
-            <span>Open Dashboard Cockpit</span>
+            <span>Open Health Dashboard</span>
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>

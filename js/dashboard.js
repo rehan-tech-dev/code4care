@@ -153,11 +153,12 @@
           '</div>' +
 
           '<div class="tool-card-footer">' +
-            '<span class="tool-status-pill">' +
-              (tool.status === 'active' ? 'Active' : 'Coming soon') +
+            '<span class="tool-status-pill ' + (tool.status === 'active' ? 'tool-status-active' : '') + '">' +
+              '<span class="status-dot" style="display:inline-block; width:6px; height:6px; border-radius:50%; background:' + (tool.status === 'active' ? '#10B981' : '#F59E0B') + '; margin-right:5px; box-shadow:0 0 6px ' + (tool.status === 'active' ? '#10B981' : '#F59E0B') + ';"></span>' +
+              (tool.status === 'active' ? 'Ready' : 'Coming soon') +
             '</span>' +
             '<span class="tool-action-link">' +
-              'Launch &rarr;' +
+              'Open Tool &rarr;' +
             '</span>' +
           '</div>' +
         '</article>';
@@ -526,8 +527,80 @@
   }
 
   // ========================================================================
-  // 8. Restore Saved State on Page Load
+  // 8. Restore Saved State & URL Parameter Handling
   // ========================================================================
+  function checkUrlToolParam() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var toolId = params.get('tool');
+      if (toolId) {
+        setTimeout(function () {
+          openToolDrawer(toolId);
+        }, 250);
+      }
+    } catch (e) {
+      console.warn('URL parameter parsing failed', e);
+    }
+  }
+
+  function initDataSync() {
+    // Listen for real-time updates from tools
+    window.addEventListener('code4care_data_updated', function (e) {
+      var detail = e.detail;
+      if (!detail) return;
+
+      if (detail.key === 'water') {
+        var strongWater = document.getElementById('overview-water-strong');
+        var pctWater = document.getElementById('overview-water-pct');
+        var fillWater = document.getElementById('hydration-demo-fill');
+        if (strongWater) {
+          strongWater.innerHTML = detail.value.drankLiters + ' <span style="font-size: 0.9rem; color: var(--muted); font-weight: normal;">/ ' + detail.value.goalLiters + 'L</span>';
+        }
+        var pct = Math.min(100, Math.round((detail.value.drankLiters / detail.value.goalLiters) * 100));
+        if (pctWater) pctWater.textContent = pct + '%';
+        if (fillWater) fillWater.style.width = pct + '%';
+      } else if (detail.key === 'sleep') {
+        var strongSleep = document.getElementById('overview-sleep-strong');
+        var qualitySleep = document.getElementById('overview-sleep-quality');
+        if (strongSleep) strongSleep.textContent = detail.value.hours + 'h';
+        if (qualitySleep) qualitySleep.textContent = detail.value.quality;
+      } else if (detail.key === 'mood') {
+        var strongMood = document.getElementById('overview-mood-strong');
+        var subMood = document.getElementById('overview-mood-sub');
+        if (strongMood) strongMood.textContent = detail.value.emoji + ' ' + detail.value.name;
+        if (subMood && detail.value.tags && detail.value.tags.length > 0) {
+          subMood.textContent = detail.value.tags.join(' \u2022 ');
+        }
+      }
+    });
+
+    // Check localStorage on boot
+    try {
+      var savedWater = localStorage.getItem('code4care_water_drank');
+      if (savedWater) {
+        var drank = parseInt(savedWater, 10);
+        var strongWater = document.getElementById('overview-water-strong');
+        var pctWater = document.getElementById('overview-water-pct');
+        var fillWater = document.getElementById('hydration-demo-fill');
+        if (strongWater) {
+          strongWater.innerHTML = (drank / 1000).toFixed(1) + ' <span style="font-size: 0.9rem; color: var(--muted); font-weight: normal;">/ 2.5L</span>';
+        }
+        var pct = Math.min(100, Math.round((drank / 2500) * 100));
+        if (pctWater) pctWater.textContent = pct + '%';
+        if (fillWater) fillWater.style.width = pct + '%';
+      }
+
+      var savedMood = localStorage.getItem('code4care_mood');
+      if (savedMood) {
+        var moodData = JSON.parse(savedMood);
+        var strongMood = document.getElementById('overview-mood-strong');
+        if (strongMood && moodData.emoji && moodData.name) {
+          strongMood.textContent = moodData.emoji + ' ' + moodData.name;
+        }
+      }
+    } catch (e) {}
+  }
+
   function restoreState() {
     try {
       var savedTab = localStorage.getItem('code4care_active_tab');
@@ -556,8 +629,10 @@
     initNavigation();
     initDrawerEvents();
     initDemoWidgets();
+    initDataSync();
     restoreState();
     renderTools();
+    checkUrlToolParam();
   });
 
 })();
