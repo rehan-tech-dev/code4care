@@ -39,6 +39,8 @@
   var overviewSection = document.getElementById('overview-section');
   var toolsSection = document.getElementById('tools-section');
   var progressSection = document.getElementById('progress-section');
+  var tipsSection = document.getElementById('tips-section');
+  var topbarTipsBtn = document.getElementById('topbar-tips-btn');
 
   // Drawer Elements
   var drawerBackdrop = document.getElementById('drawer-backdrop');
@@ -256,6 +258,9 @@
     }
   }
 
+  // Expose global drawer helper so tips can trigger any diagnostic tool
+  window.Code4CareOpenTool = openToolDrawer;
+
   // Coming Soon Architectural Placeholder Template
   function renderComingSoonPlaceholder(container, tool) {
     var featuresHtml = '';
@@ -395,21 +400,33 @@
       overviewSection.style.display = 'flex';
       toolsSection.style.display = 'flex';
       progressSection.style.display = 'none';
+      if (tipsSection) tipsSection.style.display = 'none';
       setCategory('all');
     } else if (sectionName === 'physical') {
       overviewSection.style.display = 'none';
       toolsSection.style.display = 'flex';
       progressSection.style.display = 'none';
+      if (tipsSection) tipsSection.style.display = 'none';
       setCategory('physical');
     } else if (sectionName === 'mental') {
       overviewSection.style.display = 'none';
       toolsSection.style.display = 'flex';
       progressSection.style.display = 'none';
+      if (tipsSection) tipsSection.style.display = 'none';
       setCategory('mental');
     } else if (sectionName === 'progress') {
       overviewSection.style.display = 'none';
       toolsSection.style.display = 'none';
       progressSection.style.display = 'flex';
+      if (tipsSection) tipsSection.style.display = 'none';
+    } else if (sectionName === 'tips') {
+      overviewSection.style.display = 'none';
+      toolsSection.style.display = 'none';
+      progressSection.style.display = 'none';
+      if (tipsSection) tipsSection.style.display = 'flex';
+      if (window.Code4CareTipsEngine && typeof window.Code4CareTipsEngine.refresh === 'function') {
+        window.Code4CareTipsEngine.refresh();
+      }
     }
 
     // Save active section to LocalStorage
@@ -422,6 +439,9 @@
     // Scroll to top of content smoothly
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // Expose setSection globally
+  window.Code4CareSetSection = setSection;
 
   function initNavigation() {
     // Desktop sidebar clicks
@@ -439,6 +459,13 @@
         if (sec) setSection(sec);
       });
     });
+
+    // Topbar Health Tips Quick Button
+    if (topbarTipsBtn) {
+      topbarTipsBtn.addEventListener('click', function () {
+        setSection('tips');
+      });
+    }
   }
 
   // ========================================================================
@@ -505,6 +532,23 @@
         }
       });
     }
+
+    // Bento Daily Tip navigation buttons
+    var btnBentoViewTips = document.getElementById('btn-bento-view-tips');
+    if (btnBentoViewTips) {
+      btnBentoViewTips.addEventListener('click', function () {
+        setSection('tips');
+      });
+    }
+
+    var btnBentoNextTip = document.getElementById('btn-bento-next-tip');
+    if (btnBentoNextTip) {
+      btnBentoNextTip.addEventListener('click', function () {
+        if (window.Code4CareTipsEngine && typeof window.Code4CareTipsEngine.nextTip === 'function') {
+          window.Code4CareTipsEngine.nextTip();
+        }
+      });
+    }
   }
 
   // ========================================================================
@@ -537,6 +581,13 @@
         setTimeout(function () {
           openToolDrawer(toolId);
         }, 250);
+      }
+
+      var sectionParam = params.get('section');
+      if (sectionParam && (sectionParam === 'overview' || sectionParam === 'physical' || sectionParam === 'mental' || sectionParam === 'progress' || sectionParam === 'tips')) {
+        setTimeout(function () {
+          setSection(sectionParam);
+        }, 150);
       }
     } catch (e) {
       console.warn('URL parameter parsing failed', e);
@@ -609,7 +660,7 @@
       }
 
       var savedSection = localStorage.getItem('code4care_active_section');
-      if (savedSection && (savedSection === 'overview' || savedSection === 'physical' || savedSection === 'mental' || savedSection === 'progress')) {
+      if (savedSection && (savedSection === 'overview' || savedSection === 'physical' || savedSection === 'mental' || savedSection === 'progress' || savedSection === 'tips')) {
         setSection(savedSection);
       } else {
         setCategory(state.activeCategory);

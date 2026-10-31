@@ -404,6 +404,90 @@ a {
   60% { transform: scale(1); }
 }
 
+/* --- Code4Care Logo Image Styling --- */
+.brand-logo-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(34, 211, 238, 0.45);
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.25);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.brand-logo:hover .brand-logo-img {
+  transform: scale(1.1) rotate(4deg);
+  box-shadow: 0 0 22px rgba(34, 211, 238, 0.55);
+}
+
+/* Hero Centerpiece Floating Logo Badge */
+.hero-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 12px;
+  animation: hero-logo-float 3.4s ease-in-out infinite alternate;
+}
+
+.hero-brand-logo-img {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(34, 211, 238, 0.55);
+  box-shadow: 
+    0 0 25px rgba(34, 211, 238, 0.35),
+    0 0 50px rgba(0, 114, 255, 0.2),
+    0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-brand-badge:hover .hero-brand-logo-img {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(34, 211, 238, 0.65);
+}
+
+@keyframes hero-logo-float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-7px); }
+}
+
+/* CTA Box Logo Placement */
+.cta-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.cta-logo-img {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(34, 211, 238, 0.45);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.35);
+  animation: cta-logo-pulse 3s infinite ease-in-out;
+}
+
+@keyframes cta-logo-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 16px rgba(34, 211, 238, 0.3); }
+  50% { transform: scale(1.06); box-shadow: 0 0 28px rgba(34, 211, 238, 0.6); }
+}
+
+/* Footer Logo */
+.footer-logo-img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.2);
+  flex-shrink: 0;
+}
+
 /* ==========================================================================
    Header & Sticky Navigation Bar
    ========================================================================== */
